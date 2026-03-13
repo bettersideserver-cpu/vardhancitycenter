@@ -182,15 +182,96 @@ body{background:var(--iv);color:var(--ink);font-family:"DM Sans",sans-serif;curs
 .rev[data-d="2"]{transition-delay:.24s;}
 .rev[data-d="3"]{transition-delay:.36s;}
 .rev[data-d="4"]{transition-delay:.48s;}
+
+
+
+
+
 @media(max-width:1080px){
   #hero{grid-template-columns:1fr;}
-  .hero-vid-panel{position:absolute;inset:0;z-index:0;}
-  .hero-txt-panel{z-index:1;padding:120px 40px 80px;}
-  .brands-layout{grid-template-columns:1fr;}
-  .brands-sticky-col{position:static;height:auto;padding:60px 40px 40px;}
-  .brands-cards-col{padding:40px;}
+  
+  /* Make the hero image/video visible */
+  .hero-vid-panel{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  
+  .hero-txt-panel{
+    z-index:1;
+    padding:120px 40px 80px;
+    background: linear-gradient(to bottom, rgba(26,26,26,0.2), rgba(26,26,26,0.8)); 
+    justify-content: center;
+  }
+
+  /* Reset the layout for stacking */
+  .brands-layout {
+    display: block;
+    width: 100%;
+  }
+
+  /* Center the Heading Section */
+  .brands-sticky-col {
+    position: static;
+    height: auto;
+    padding: 80px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    text-align: center;     
+    border-right: none;
+    width: 100%;
+  }
+
+  /* --- CENTER THE CARDS POSITION --- */
+  .brands-cards-col {
+    padding: 40px 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the brand-rows */
+  }
+
+  .brand-row {
+    display: flex;       /* Changed from grid to flex for easier centering */
+    flex-direction: column;
+    align-items: center; /* Centers cards horizontally in the row */
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .bcard {
+    width: 100%;
+    max-width: 400px;    /* Limits width so it looks like a centered box */
+    padding: 40px 32px;  /* Equal left/right padding inside the card */
+    cursor: default;
+    text-align: center;  /* Centers the text inside the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content (Name, Desc) inside the card */
+  }
+
+  /* Reposition elements for a centered design */
+  .bcard-num {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10px;
+  }
+
+  .bcard-name {
+    transform: none !important;
+  }
+
+  .bcard-arrow {
+    position: static;
+    margin-top: 20px;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Ensure footer and other sections stay responsive */
   .invest-body{grid-template-columns:1fr;}
-  .invest-right{min-height:auto;}
   .footer-top{grid-template-columns:1fr;}
   .footer-sep{display:none;}
   .footer-brand,.footer-form-col{padding:60px 40px;}
@@ -199,11 +280,4 @@ body{background:var(--iv);color:var(--ink);font-family:"DM Sans",sans-serif;curs
   .hamburger{display:flex;}
   .stat-bar{grid-template-columns:1fr 1fr;}
   .sbar-item:nth-child(2){border-right:none;}
-}
-@media(max-width:640px){
-  .brand-row{grid-template-columns:1fr;}
-  .fg-grid{grid-template-columns:1fr;}
-  .footer-bar{flex-direction:column;gap:12px;padding:20px 24px;text-align:center;}
-  .stat-bar{grid-template-columns:1fr 1fr;}
-  .ff-submit-row{flex-direction:column;align-items:flex-start;}
 }
